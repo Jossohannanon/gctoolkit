@@ -5,11 +5,11 @@
     <groupId>com.microsoft.gctoolkit</groupId>
     <artifactId>gctoolkit</artifactId>
     <packaging>pom</packaging>
-    <version>3.0.5-SNAPSHOT</version>
+    <version>3.0.5-PTC</version>
 
     <name>GCToolKit</name>
-    <description>GC log parsing utilities</description>
-    <url>https://github.com/microsoft/gctoolkit</url>
+    <description>GC log parsing utilities - fork for PTC use</description>
+    <url>https://github.com/Jossohannanon/gctoolkit</url>
 
     <organization>
         <name>Microsoft Corporation</name>
@@ -28,8 +28,8 @@
         <connection>scm:git:${repository.url}</connection>
         <developerConnection>scm:git:${repository.url}</developerConnection>
         <url>${repository.url}</url>
-      <tag>HEAD</tag>
-  </scm>
+		<tag>HEAD</tag>
+	</scm>
 
     <developers>
         <developer>
@@ -40,20 +40,22 @@
 
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/microsoft/gctoolkit/issues</url>
+        <url>https://github.com/Jossohannanon/gctoolkit/issues</url>
     </issueManagement>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
-
+	<distributionManagement>
+		<snapshotRepository>
+			<id>innolab-repo-snapshot</id>
+			<name>Innovation Lab Repo</name>
+			<url>https://websamdev.ptcnet.ptc.com:8444/repository/innolab-repo-snapshot/</url>
+		</snapshotRepository>
+		<repository>
+			<id>innolab-repo</id>
+			<name>Innovation Lab Repo</name>
+			<url>https://websamdev.ptcnet.ptc.com:8444/repository/innolab-repo/</url>
+		</repository>
+	</distributionManagement>
+	
     <properties>
         <revision>3.0.3-SNAPSHOT</revision>
         <checkstyle.version>10.16.0</checkstyle.version>
@@ -376,18 +378,18 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
             </plugin>
-            <plugin>
+            <!--plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
                 <version>1.6.13</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <serverId>innolab-repo</serverId>
+                    <nexusUrl>https://websamdev.ptcnet.ptc.com:8444/repository/innolab-repo/</nexusUrl>
                     <autoReleaseAfterClose>false</autoReleaseAfterClose>
                     <stagingProgressTimeoutMinutes>10</stagingProgressTimeoutMinutes>
                 </configuration>
-            </plugin>
+            </plugin-->
             <plugin>
                 <groupId>org.hjug.refactorfirst.plugin</groupId>
                 <artifactId>refactor-first-maven-plugin</artifactId>
